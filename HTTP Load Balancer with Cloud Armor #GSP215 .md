@@ -267,7 +267,7 @@ curl -X PATCH -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "C
 -d @5.json \
 "https://compute.googleapis.com/compute/v1/projects/$DEVSHELL_PROJECT_ID/global/backendServices/http-backend"
 export RULE_IP=$(gcloud compute forwarding-rules describe http-lb-forwarding-rule --global --format="value(IPAddress)")
-gcloud compute ssh --zone "$VM_ZONE" "siege-vm"
+gcloud compute ssh --zone "$VM_ZONE" "siege-vm" --quiet
 ```
 ```cmd
 sudo apt-get -y install siege
